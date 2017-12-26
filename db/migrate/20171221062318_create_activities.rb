@@ -1,7 +1,7 @@
 class CreateActivities < ActiveRecord::Migration[5.1]
   def change
     create_table :activities do |t|
-      t.integer  :type, default: 0
+      t.integer  :activity_type, default: 0
       t.string   :title
       t.datetime :time
       t.string    :place

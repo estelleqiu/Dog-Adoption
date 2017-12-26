@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string           not null
-#  type        :integer          default(0)
+#  animal_type :integer          default(0)
 #  year        :integer
 #  gender      :integer
 #  variety     :string

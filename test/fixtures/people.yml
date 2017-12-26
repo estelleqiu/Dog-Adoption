@@ -2,15 +2,15 @@
 #
 # Table name: people
 #
-#  id         :integer          not null, primary key
-#  type       :integer
-#  name       :string
-#  gender     :integer
-#  phone      :string
-#  story      :string
-#  password   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  person_type :integer
+#  name        :string
+#  gender      :integer
+#  phone       :string
+#  story       :string
+#  password    :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
