@@ -16,4 +16,6 @@
 class Person < ApplicationRecord
   has_many :activities
   has_many :animals
+
+  enum  person_type: [:admin, :edit, :adopter, :sponsor, :volunteer]
 end

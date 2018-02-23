@@ -32,7 +32,8 @@ ActiveRecord::Schema.define(version: 20171226071459) do
   create_table "activities", force: :cascade do |t|
     t.integer "activity_type", default: 0
     t.string "title"
-    t.datetime "time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string "place"
     t.string "content", default: ""
     t.datetime "created_at", null: false
@@ -52,12 +53,12 @@ ActiveRecord::Schema.define(version: 20171226071459) do
   create_table "animals", force: :cascade do |t|
     t.string "name", null: false
     t.integer "animal_type", default: 0
-    t.integer "year"
+    t.date "birth_date"
     t.integer "gender"
     t.string "variety"
     t.string "character"
     t.string "life_detail"
-    t.string "photo"
+    t.string "photo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

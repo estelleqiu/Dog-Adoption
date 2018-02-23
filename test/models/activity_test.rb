@@ -3,9 +3,10 @@
 # Table name: activities
 #
 #  id            :integer          not null, primary key
-#  activity_type :integer          default(0)
+#  activity_type :integer          default("volunteer_activity")
 #  title         :string
-#  time          :datetime
+#  start_time    :datetime
+#  end_time      :datetime
 #  place         :string
 #  content       :string           default("")
 #  created_at    :datetime         not null

@@ -3,7 +3,8 @@ class CreateActivities < ActiveRecord::Migration[5.1]
     create_table :activities do |t|
       t.integer  :activity_type, default: 0
       t.string   :title
-      t.datetime :time
+      t.datetime :start_time
+      t.datetime :end_time
       t.string    :place
       t.string    :content, default: ''
 
