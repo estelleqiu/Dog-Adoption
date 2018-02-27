@@ -1,0 +1,19 @@
+<section class='cover'>封面</section>
+
+<hr/>
+
+<main>
+  <section class='animal-container'>
+    <ul class='animal-list'>
+      <% @all_animal.each do |animal| %>
+        <li class='animal-item'><%= animal.name %></li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class='video-container'>
+    <div class='video'>视频</div>
+  </section>
+</main>
+
+<hr/>

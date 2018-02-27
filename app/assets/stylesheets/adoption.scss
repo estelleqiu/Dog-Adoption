@@ -1,0 +1,46 @@
+// Place all the styles related to the adoption controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  text-align: center;
+}
+
+.cover {
+  height: 100px;
+  border: 1px solid black;
+}
+
+hr {
+  width: 80%;
+  margin: 30px auto;
+}
+
+main {
+  display: flex;
+}
+
+.animal-container {
+  width: 75%;
+}
+
+.animal-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.animal-item {
+  width: 120px;
+  height: 100px;
+  margin: 0 20px 20px 0;
+  border: 1px solid black;
+}
+
+.video-container {
+  width: 25%;
+}
+
+.video {
+  height: 125px;
+  border: 1px solid black;
+}
