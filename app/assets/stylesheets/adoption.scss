@@ -16,28 +16,32 @@ hr {
   margin: 30px auto;
 }
 
-main {
-  display: flex;
+@media (min-width: 780px) {
+  main {
+    display: flex;
+  }
 }
 
 .animal-container {
-  width: 75%;
+  @media (min-width: 780px) {
+  }
 }
 
 .animal-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .animal-item {
-  width: 120px;
+  width: 100%;
   height: 100px;
-  margin: 0 20px 20px 0;
+  margin-bottom: 20px;
   border: 1px solid black;
-}
-
-.video-container {
-  width: 25%;
+  @media (min-width: 780px) {
+    width: 120px;
+    margin: 0 20px 20px 0;
+  }
 }
 
 .video {
