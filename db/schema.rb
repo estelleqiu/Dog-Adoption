@@ -59,6 +59,17 @@ ActiveRecord::Schema.define(version: 20180301004827) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fee_reports", force: :cascade do |t|
+    t.string "item_name"
+    t.integer "item_kind"
+    t.integer "fee_type"
+    t.integer "quantity"
+    t.string "information_url"
+    t.string "director"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "joinings", force: :cascade do |t|
     t.bigint "activity_id"
     t.bigint "person_id"
@@ -74,17 +85,6 @@ ActiveRecord::Schema.define(version: 20180301004827) do
     t.integer "gender"
     t.string "phone"
     t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reports", force: :cascade do |t|
-    t.string "title"
-    t.integer "kind"
-    t.integer "type"
-    t.integer "quantity"
-    t.string "information_url"
-    t.string "benefactor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
