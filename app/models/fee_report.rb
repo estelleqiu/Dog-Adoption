@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: reports
+# Table name: fee_reports
 #
 #  id              :integer          not null, primary key
-#  title           :string
-#  kind            :integer
-#  type            :integer
+#  item_name       :string
+#  item_kind       :integer
+#  fee_type        :integer
 #  quantity        :integer
 #  information_url :string
-#  benefactor      :string
+#  director        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 
-class Report < ApplicationRecord
+class FeeReport < ApplicationRecord
 end
