@@ -8,6 +8,7 @@
 #  time       :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  story      :string
 #
 # Indexes
 #

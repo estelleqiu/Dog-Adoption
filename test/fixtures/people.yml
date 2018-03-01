@@ -7,7 +7,6 @@
 #  name        :string
 #  gender      :integer
 #  phone       :string
-#  story       :string
 #  password    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
