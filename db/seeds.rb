@@ -8,5 +8,5 @@
 
 
 20.times do |i|
-  Animal.create(name: '宠物' + i.to_s)
+  Animal.create(name: '宠物' + i.to_s, slug: 'chongwu' + i.to_s)
 end
