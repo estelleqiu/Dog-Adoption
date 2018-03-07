@@ -18,13 +18,19 @@ ActiveAdmin.register Animal do
     column(:photo_url) do |animal|
       image_tag(animal.photo_url, class: 'dog-image') if animal.photo_url
     end
-    actions
+    column :actions do |animal|
+      link = link_to 'View', admin_animal_path(animal, request.query_parameters).to_s, class: :member_link
+      link += link_to 'Edit', edit_admin_animal_path(animal, request.query_parameters).to_s, class: :member_link
+      link += link_to 'Live Page', animal_path(animal.slug), class: :member_link, target: "_blank"
+      link
+    end
   end
 
   controller do
     def update
       bucket = 'dogadopt' # 要上传的空间
       key = params[:animal][:file].original_filename # 上传到七牛后保存的文件名
+      photo_name = params[:animal][:photo_url].split('/').last #当前头像的资源名
       qiniu_domain = 'http://p4wgbyuaw.bkt.clouddn.com/' # 外链默认域名
       put_policy = Qiniu::Auth::PutPolicy.new(
         bucket, # 存储空间
@@ -34,6 +40,14 @@ ActiveAdmin.register Animal do
       uptoken = Qiniu::Auth.generate_uptoken(put_policy) # 生成上传 Token
 
       filePath = File.absolute_path(params[:animal][:file].tempfile) # 要上传文件的本地路径
+
+      if key != photo_name && key != 'default_avatar'
+        #删除资源
+        code, result, response_headers = Qiniu::Storage.delete(
+          bucket,     # 存储空间
+          photo_name  # 资源名
+        )
+      end
 
       code, result, response_headers = Qiniu::Storage.upload_with_token_2(
         uptoken,
@@ -46,7 +60,7 @@ ActiveAdmin.register Animal do
       params[:animal][:photo_url] = qiniu_domain + result['key'] # 将上传到七牛云的图片外链更新到photo_url字段
 
       super do |success, failure|
-        success.html { redirect_to "#{collection_path}?#{request.env['HTTP_REFERER'].split('?')[1] || ''}" }
+        success.html { redirect_to collection_path, request.query_parameters }
         failure.html { redirect_to action: :update }
       end
     end
