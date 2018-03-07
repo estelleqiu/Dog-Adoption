@@ -28,6 +28,16 @@ ActiveAdmin.register Animal do
 
   controller do
     def update
+      update_avatar_image if params[:animal][:file]
+      super do |success, failure|
+        success.html { redirect_to collection_path, request.query_parameters }
+        failure.html { redirect_to action: :update }
+      end
+    end
+
+    private
+
+    def update_avatar_image
       bucket = 'dogadopt' # 要上传的空间
       key = params[:animal][:file].original_filename # 上传到七牛后保存的文件名
       photo_name = params[:animal][:photo_url].split('/').last #当前头像的资源名
@@ -58,11 +68,6 @@ ActiveAdmin.register Animal do
       )
 
       params[:animal][:photo_url] = qiniu_domain + result['key'] # 将上传到七牛云的图片外链更新到photo_url字段
-
-      super do |success, failure|
-        success.html { redirect_to collection_path, request.query_parameters }
-        failure.html { redirect_to action: :update }
-      end
     end
   end
 end
