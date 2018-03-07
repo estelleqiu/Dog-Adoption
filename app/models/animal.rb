@@ -9,7 +9,7 @@
 #  gender             :integer
 #  variety            :string
 #  character          :string
-#  photo_url          :string
+#  photo_url          :string           default("http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg")
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  slug               :string

@@ -7,8 +7,7 @@
     <ul class='animal-list'>
       <% @all_animal.each do |animal| %>
         <li>
-          <a class='animal-item' href="/animals/<%= animal.slug %>">
-            <%= image_tag("http://imgsrc.baidu.com/image/c0%3Dpixel_huitu%2C0%2C0%2C294%2C40/sign=09e9a51105f41bd5ce5ee0b438a2e4a7/faedab64034f78f083c1d8c972310a55b2191cc5.jpg", class: 'item-image') %>
+          <a class='animal-item' href="/animals/<%= animal.slug %>" style = "background-image: url(<%= animal.photo_url %>)">
             <div><%= animal.name %></div>
           </a>
         </li>

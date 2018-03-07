@@ -1,0 +1,17 @@
+= semantic_form_for [:admin, @animal] do |f|
+  = f.inputs :name => 'Name', class: 'inputs' do
+    = f.input :name
+    = f.input :animal_type
+    = f.input :birth_date
+    = f.input :gender
+    = f.input :variety
+    = f.input :character
+    = f.input :slug
+    = f.input :photo_url, type: 'hidden'
+    = f.input :description
+    %li
+      %label Photo
+      .img-photo
+        %img{src: "#{@animal.photo_url}", class: 'dog-image'}
+        = f.file_field :file, class: 'avatar-select', accept: '.jpg, .jpeg, .png, .gif, .bmp'
+  = f.actions
