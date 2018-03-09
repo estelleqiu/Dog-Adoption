@@ -1,5 +1,5 @@
 <main>
-  <%= image_tag(@animal.photo_url, class: 'page-image') %>
+  <%= image_tag(@animal.media.first.try(:url) || 'http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg', class: 'page-image') %>
   <h2><%= @animal.name %></h2>
   <section>
     <%= @animal.description %>
