@@ -1,7 +1,7 @@
 ActiveAdmin.register Animal do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  permit_params :name, :animal_type, :birth_date, :gender, :variety, :character, :slug, :description, :size, media_attributes: [:id, :medium_type, :mediable_type, :mediable_id, :_destroy]
+  permit_params :name, :animal_type, :birth_date, :gender, :variety, :character, :slug, :description, :size, :file, media_attributes: [:id, :medium_type, :mediable_type, :mediable_id, :_destroy]
   form partial: 'form'
   # config.clear_action_items!
   index do
@@ -57,7 +57,8 @@ ActiveAdmin.register Animal do
           nil, # 可以接受一个 Hash 作为自定义变量，请参照 http://developer.qiniu.com/article/kodo/kodo-developer/up/ vars.html#xvar
           bucket: bucket
         )
-        Medium.create(mediable_type: 'Animal', url: qiniu_domain + result['key'], mediable_id: animal.id, medium_type: 'photo') # 新建一条type为photo，url为七牛云的图片外链的数据
+        url = qiniu_domain + key
+        Medium.create(mediable_type: 'Animal', url: url, mediable_id: animal.id, medium_type: 'photo') # 新建一条type为photo，url为七牛云的图片外链的数据
       end
       params[:animal][:media_attributes] = nil
     end
