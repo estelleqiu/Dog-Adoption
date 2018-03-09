@@ -1,4 +1,15 @@
-<section class='cover'>封面</section>
+<section class='carousel'>
+  <ul class="carousel">
+			<li><%= image_tag 'dog-puppy-at-play.jpg' %></li>
+			<li><%= image_tag 'dogs-playing-water.jpg' %></li>
+			<li><%= image_tag 'send-rover-on-over-dog-rose.jpg' %></li>
+			<li><%= image_tag 'a4.png' %></li>
+			<li><%= image_tag 'a1.png' %></li>
+	</ul>
+  <ul class="img-index"></ul>
+  <div class="carousel-prev"><%= image_tag 'left_btn2.png' %></div>
+  <div class="carousel-next"><%= image_tag 'right_btn1.png' %></div>
+</section>
 
 <hr/>
 
@@ -6,12 +17,46 @@
   <section class='animal-container'>
     <ul class='animal-list'>
       <% @all_animal.each do |animal| %>
-        <li>
-          <a class='animal-item' href="/animals/<%= animal.slug %>" style = "background-image: url(<%= animal.media.first.try(:url) || 'http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg' %>)">
-            <div><%= animal.name %></div>
+        <li class='animal-item'>
+          <a href="/animals/<%= animal.slug %>">
+            <div class='animal-avatar' style = "background-image: url(<%= animal.media.first.try(:url) || 'http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg' %>)"></div>
+            <div class='animal-info'>
+              <div class= 'name'>
+                <%= animal.name %>
+              </div>
+              <div class= 'description'>
+              <%= animal.description %>
+              </div>
+            </div>
           </a>
         </li>
       <% end %>
     </ul>
   </section>
 </main>
+
+<script type="text/javascript" src="http://www.jq22.com/demo/jqueryLbt201801110058/scripts/carousel.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $(".carousel-content").carousel({
+      carousel : ".carousel",//轮播图容器
+      indexContainer : ".img-index",//下标容器
+      prev : ".carousel-prev",//左按钮
+      next : ".carousel-next",//右按钮
+      timing : 6000,//自动播放间隔
+      animateTime : 2000,//动画时间
+      auto : true,//是否自动播放
+    });
+
+    $(".carousel-prev").hover(function(){
+      $(this).find("img").attr("src", <% image_tag 'a1.png' %>);
+    },function(){
+      $(this).find("img").attr("src",<% image_tag 'left_btn2.png' %>);
+    });
+    $(".carousel-next").hover(function(){
+      $(this).find("img").attr("src",<% image_tag 'right_btn1.png' %>);
+    },function(){
+      $(this).find("img").attr("src",<% image_tag 'right_btn1.png' %>);
+    });
+  });
+</script>

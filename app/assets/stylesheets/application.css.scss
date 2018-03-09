@@ -17,7 +17,11 @@
  @import 'animals';
 
  body {
-  padding: 0 8%;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media (min-width: 780px) {
+    width: 1140px;
+  }
  }
 
  ul {
@@ -28,4 +32,11 @@
 
  a, a:link, a:visited {
   text-decoration: none;
+ }
+
+ footer {
+  margin: 30px 0;
+  padding: 30px 0;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
  }
