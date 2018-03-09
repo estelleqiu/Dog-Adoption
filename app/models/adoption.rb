@@ -17,6 +17,7 @@
 #
 
 class Adoption < ApplicationRecord
-    has_one :animal
-    belongs_to :person
+  has_one :animal
+  has_many :media, as: :mediable
+  belongs_to :person
 end

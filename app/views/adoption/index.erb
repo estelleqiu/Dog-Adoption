@@ -7,7 +7,7 @@
     <ul class='animal-list'>
       <% @all_animal.each do |animal| %>
         <li>
-          <a class='animal-item' href="/animals/<%= animal.slug %>" style = "background-image: url(<%= animal.photo_url %>)">
+          <a class='animal-item' href="/animals/<%= animal.slug %>" style = "background-image: url(<%= animal.media.first.try(:url) || 'http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg' %>)">
             <div><%= animal.name %></div>
           </a>
         </li>

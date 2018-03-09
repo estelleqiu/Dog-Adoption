@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307035306) do
+ActiveRecord::Schema.define(version: 20180307084741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,21 +44,23 @@ ActiveRecord::Schema.define(version: 20180307035306) do
     t.integer "gender"
     t.string "variety"
     t.string "character"
-    t.string "photo_url", default: "http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.text "description"
     t.boolean "is_vaccined", default: false
     t.boolean "is_sterilizationed", default: false
+    t.string "size"
   end
 
   create_table "experineces", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.string "original_url"
+    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_experineces_on_person_id"
   end
 
   create_table "fee_reports", force: :cascade do |t|
@@ -79,6 +81,16 @@ ActiveRecord::Schema.define(version: 20180307035306) do
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_joinings_on_activity_id"
     t.index ["person_id"], name: "index_joinings_on_person_id"
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string "url", default: "http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg"
+    t.integer "medium_type"
+    t.string "mediable_type"
+    t.bigint "mediable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mediable_type", "mediable_id"], name: "index_media_on_mediable_type_and_mediable_id"
   end
 
   create_table "people", force: :cascade do |t|

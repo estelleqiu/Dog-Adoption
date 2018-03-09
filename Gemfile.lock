@@ -164,9 +164,6 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-byebug (3.6.0)
-      byebug (~> 10.0)
-      pry (~> 0.10)
     public_suffix (3.0.2)
     puma (3.11.2)
     qiniu (6.9.0)
@@ -294,7 +291,6 @@ DEPENDENCIES
   pg_query (= 0.11.4)
   pghero (= 1.6.4)
   pry
-  pry-byebug
   puma (~> 3.7)
   qiniu
   rails (~> 5.1.4)

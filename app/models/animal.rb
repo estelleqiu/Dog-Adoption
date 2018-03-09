@@ -9,21 +9,24 @@
 #  gender             :integer
 #  variety            :string
 #  character          :string
-#  photo_url          :string           default("http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg")
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  slug               :string
 #  description        :text
 #  is_vaccined        :boolean          default(FALSE)
 #  is_sterilizationed :boolean          default(FALSE)
+#  size               :string
 #
 
 class Animal < ApplicationRecord
   has_one :adoption
   has_one :person, through: :adoption
+  has_many :media, as: :mediable
 
   enum animal_type: [:dog, :cat]
   enum gender: [:male, :female, :unknown]
 
   validates :slug, uniqueness: true, presence: true
+
+  accepts_nested_attributes_for :media, allow_destroy: true
 end
