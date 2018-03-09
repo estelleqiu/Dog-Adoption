@@ -16,6 +16,7 @@
 class Activity < ApplicationRecord
   has_many :joinings
   has_many :people, through: :joinings
+  has_many :media, as: :mediable
 
   enum activity_type: [:volunteer_activity, :bazaar_activity, :other_activity]
 end

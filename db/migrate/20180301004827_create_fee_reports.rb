@@ -1,4 +1,4 @@
-class CreateReports < ActiveRecord::Migration[5.1]
+class CreateFeeReports < ActiveRecord::Migration[5.1]
   def change
     create_table :fee_reports do |t|
       t.string :item_name
