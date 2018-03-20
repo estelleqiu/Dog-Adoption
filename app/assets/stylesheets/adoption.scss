@@ -14,7 +14,7 @@ hr {
 }
 
 @media (min-width: 780px) {
-  main {
+  .home-index {
     display: inline-flex;
     width: 100%;
   }
@@ -54,6 +54,7 @@ hr {
     height: 70%;
     background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     border-radius: 15px;
   }
 
@@ -65,8 +66,8 @@ hr {
       font-family: "Helvetica Neue",Helvetica,Arial,Roboto,"Lucida Grande",sans-serif;
       color: rgb(77, 77, 77);
     }
-    .description {
-      padding-top: 10px;
+    .gender {
+      float: right;
     }
   }
 }

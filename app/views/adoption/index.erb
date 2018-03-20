@@ -6,14 +6,11 @@
 			<li><%= image_tag 'a4.png' %></li>
 			<li><%= image_tag 'a1.png' %></li>
 	</ul>
-  <ul class="img-index"></ul>
-  <div class="carousel-prev"><%= image_tag 'left_btn2.png' %></div>
-  <div class="carousel-next"><%= image_tag 'right_btn1.png' %></div>
 </section>
 
 <hr/>
 
-<main>
+<main class='home-index'>
   <section class='animal-container'>
     <ul class='animal-list'>
       <% @all_animal.each do |animal| %>
@@ -21,12 +18,12 @@
           <a href="/animals/<%= animal.slug %>">
             <div class='animal-avatar' style = "background-image: url(<%= animal.media.first.try(:url) || 'http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg' %>)"></div>
             <div class='animal-info'>
-              <div class= 'name'>
+              <span class= 'name'>
                 <%= animal.name %>
-              </div>
-              <div class= 'description'>
-              <%= animal.description %>
-              </div>
+              </span>
+              <span class= 'gender'>
+                <%= animal.gender %>
+              </span>
             </div>
           </a>
         </li>
