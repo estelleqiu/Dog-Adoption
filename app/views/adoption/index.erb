@@ -1,11 +1,11 @@
-<section class='carousel'>
-  <ul class="carousel">
-			<li><%= image_tag 'dog-puppy-at-play.jpg' %></li>
-			<li><%= image_tag 'dogs-playing-water.jpg' %></li>
-			<li><%= image_tag 'send-rover-on-over-dog-rose.jpg' %></li>
-			<li><%= image_tag 'a4.png' %></li>
-			<li><%= image_tag 'a1.png' %></li>
-	</ul>
+<section class='carousel-container'>
+  <div class="carousel">
+			<div><%= image_tag 'dog-puppy-at-play.jpg', class: 'carosel-image' %></div>
+			<div><%= image_tag 'dogs-playing-water.jpg', class: 'carosel-image' %></div>
+			<div><%= image_tag 'send-rover-on-over-dog-rose.jpg', class: 'carosel-image' %></div>
+			<div><%= image_tag 'a4.png', class: 'carosel-image' %></div>
+			<div><%= image_tag 'a1.png', class: 'carosel-image' %></div>
+	</div>
 </section>
 
 <hr/>
@@ -32,28 +32,15 @@
   </section>
 </main>
 
-<script type="text/javascript" src="http://www.jq22.com/demo/jqueryLbt201801110058/scripts/carousel.js"></script>
+
 <script type="text/javascript">
   $(function(){
-    $(".carousel-content").carousel({
-      carousel : ".carousel",//轮播图容器
-      indexContainer : ".img-index",//下标容器
-      prev : ".carousel-prev",//左按钮
-      next : ".carousel-next",//右按钮
-      timing : 6000,//自动播放间隔
-      animateTime : 2000,//动画时间
-      auto : true,//是否自动播放
-    });
-
-    $(".carousel-prev").hover(function(){
-      $(this).find("img").attr("src", <% image_tag 'a1.png' %>);
-    },function(){
-      $(this).find("img").attr("src",<% image_tag 'left_btn2.png' %>);
-    });
-    $(".carousel-next").hover(function(){
-      $(this).find("img").attr("src",<% image_tag 'right_btn1.png' %>);
-    },function(){
-      $(this).find("img").attr("src",<% image_tag 'right_btn1.png' %>);
+    $('.carousel').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      arrows: false,
+      autoplaySpeed: 3000,
     });
   });
 </script>
