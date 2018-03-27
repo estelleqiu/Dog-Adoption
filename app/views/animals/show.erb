@@ -1,10 +1,10 @@
 <main>
-  <section class='carousel'>
-    <%- if @animal_photos.blank? %>
+  <section class='carousel-container'>
+    <%- if @animal.media.blank? %>
       <img src='http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg', class: 'carosel-image'/>
     <% else %>
       <div class="carousel">
-        <%- @animal_photos.each do |p| %>
+        <%- @animal.media.each do |p| %>
           <div><%= image_tag p.url, class: 'carosel-image' %></div>
         <% end %>
       </div>
