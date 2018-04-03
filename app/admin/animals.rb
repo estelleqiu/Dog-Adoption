@@ -1,7 +1,7 @@
 ActiveAdmin.register Animal do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  permit_params :name, :animal_type, :birth_date, :gender, :variety, :character, :slug, :description, :size, :file, media_attributes: [:id, :medium_type, :mediable_type, :mediable_id, :_destroy]
+  permit_params :name, :animal_type, :birth_date, :gender, :variety, :character, :slug, :description, :size, :file, media_attributes: [:id, :medium_type, :mediable_type, :mediable_id, :_destroy, :url]
   form partial: 'form'
   # config.clear_action_items!
   index do
@@ -24,6 +24,14 @@ ActiveAdmin.register Animal do
   end
 
   controller do
+    def create
+      # update_avatar_image if params[:animal][:file]
+      super do |success, failure|
+        success.html { redirect_to collection_path, request.query_parameters }
+        failure.html { render :create }
+      end
+    end
+
     def update
       update_avatar_image if params[:animal][:file]
       super do |success, failure|
@@ -58,7 +66,7 @@ ActiveAdmin.register Animal do
           bucket: bucket
         )
         url = qiniu_domain + key
-        Medium.create(mediable_type: 'Animal', url: url, mediable_id: animal.id, medium_type: 'photo') # 新建一条type为photo，url为七牛云的图片外链的数据
+        # Medium.create(mediable_type: 'Animal', url: url, mediable_id: animal.id, medium_type: 'photo') # 新建一条type为photo，url为七牛云的图片外链的数据
       end
       params[:animal][:media_attributes] = nil
     end
