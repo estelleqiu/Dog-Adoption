@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    environment: 
+      - RAILS_ENV=development
+      - RACK_ENV=development
+    volumes:
+      - .:/Dog-Adoption
+    ports:
+      - "3000:3000"
+    links:
+      - db
+
+  test:
+    build: .
+    command: echo '..'
+    environment:
+      RACK_ENV: test
+      RAILS_ENV: test
+    links:
+      - db
