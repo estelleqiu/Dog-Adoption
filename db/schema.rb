@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(version: 20180307084741) do
     t.string "title"
     t.text "body"
     t.string "original_url"
+    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_experineces_on_person_id"
   end
 
   create_table "fee_reports", force: :cascade do |t|
