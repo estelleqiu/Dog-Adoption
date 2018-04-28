@@ -14,7 +14,7 @@
   <section class='animal-container'>
     <ul class='animal-list'>
       <% @all_animal.each do |animal| %>
-        <li class='animal-item'>
+        <li class='card'>
           <a href="/animals/<%= animal.id %>">
             <div class='animal-avatar' style = "background-image: url(<%= animal.media.first.try(:url) || 'http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg' %>)"></div>
             <div class='animal-info'>
