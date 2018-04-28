@@ -6,16 +6,17 @@
 
     <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   </head>
 
   <body>
-    <%= render 'share/header' %>
+    <%= react_component('header') %>
 
     <%= yield %>
 
-    <%= render 'share/footer' %>
+    <%= react_component('footer') %>
   </body>
 </html>
