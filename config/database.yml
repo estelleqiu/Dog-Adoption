@@ -12,7 +12,8 @@ default: &default
 development:
   <<: *default
   database: dog_adoption_develop
-  host: db
+  host: localhost
+  # host: db      when using docker
   username: postgres
   password:
 
@@ -22,7 +23,8 @@ development:
 test:
   <<: *default
   database: dog_adoption_develop_test
-  host: db
+  host: localhost
+   # host: db      when using docker
   username: postgres
   password:
 

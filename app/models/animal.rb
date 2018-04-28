@@ -11,7 +11,6 @@
 #  character          :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  slug               :string
 #  description        :text
 #  is_vaccined        :boolean          default(FALSE)
 #  is_sterilizationed :boolean          default(FALSE)
