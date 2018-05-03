@@ -13,12 +13,11 @@ ActiveAdmin.register Animal do
     column :gender
     column :variety
     column :character
-    column :slug
     column :description
     column :actions do |animal|
       link = link_to 'View', admin_animal_path(animal, request.query_parameters).to_s, class: :member_link
       link += link_to 'Edit', edit_admin_animal_path(animal, request.query_parameters).to_s, class: :member_link
-      link += link_to 'Live Page', animal_path(animal.slug), class: :member_link, target: "_blank"
+      link += link_to 'Live Page', animal_path(animal.id), class: :member_link, target: "_blank"
       link
     end
   end

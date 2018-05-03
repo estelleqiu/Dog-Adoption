@@ -4,9 +4,5 @@ Rails.application.routes.draw do
 
   root 'adoption#index'
 
-  concern :slug do
-    get ':slug' => :show, on: :collection
-  end
-
-  resources :animals, only: [:show], concerns: :slug
+  resources :animals, only: [:show]
 end
