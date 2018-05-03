@@ -34,7 +34,7 @@ ActiveAdmin.register Animal do
     private
 
     def update_avatar_image
-      animal = Animal.find_by(slug: params[:animal][:slug])
+      animal = Animal.find(params[:animal][:id])
       bucket = 'dogadopt' # 要上传的空间
       qiniu_domain = 'http://p4wgbyuaw.bkt.clouddn.com/' # 外链默认域名
       params[:animal][:file].each do |f|

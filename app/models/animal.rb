@@ -2,19 +2,19 @@
 #
 # Table name: animals
 #
-#  id                 :integer          not null, primary key
-#  name               :string           not null
-#  animal_type        :integer          default("dog")
-#  birth_date         :date
-#  gender             :integer
-#  variety            :string
-#  character          :string
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  description        :text
-#  is_vaccined        :boolean          default(FALSE)
-#  is_sterilizationed :boolean          default(FALSE)
-#  size               :string
+#  id            :integer          not null, primary key
+#  name          :string           not null
+#  animal_type   :integer          default("dog")
+#  birth_date    :date
+#  gender        :integer
+#  variety       :string
+#  character     :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  description   :text
+#  is_vaccined   :boolean          default(FALSE)
+#  is_sterilized :boolean          default(FALSE)
+#  size          :string
 #
 
 class Animal < ApplicationRecord
@@ -24,8 +24,7 @@ class Animal < ApplicationRecord
 
   enum animal_type: [:dog, :cat]
   enum gender: [:male, :female, :unknown]
-
-  validates :slug, uniqueness: true, presence: true
+  enum size: [:small, :medium, :big]
 
   accepts_nested_attributes_for :media, allow_destroy: true
 end

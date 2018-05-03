@@ -2,7 +2,13 @@ import React from 'react';
 
 export default class Carousel extends React.Component {
   componentDidMount = () => {
-    
+    $('.carousel').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      arrows: false,
+      autoplaySpeed: 3000,
+    });
   }
 
   render() {

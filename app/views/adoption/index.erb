@@ -8,7 +8,7 @@
       <% @all_animal.each do |animal| %>
         <li class='card'>
           <a href="/animals/<%= animal.id %>">
-            <div class='animal-avatar' style = "background-image: url(<%= animal.media.first.try(:url) || 'http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg' %>)"></div>
+            <img src='/assets/come_home.jpg' class='card-image' />
             <div class='animal-info'>
               <span class= 'name'>
                 <%= animal.name %>
@@ -23,16 +23,3 @@
     </ul>
   </section>
 </main>
-
-
-<script type="text/javascript">
-  $(function(){
-    $('.carousel').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      arrows: false,
-      autoplaySpeed: 3000,
-    });
-  });
-</script>

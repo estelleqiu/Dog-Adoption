@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428010923) do
+ActiveRecord::Schema.define(version: 20180502083137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180428010923) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.boolean "is_vaccined", default: false
-    t.boolean "is_sterilizationed", default: false
+    t.boolean "is_sterilized", default: false
     t.string "size"
   end
 
