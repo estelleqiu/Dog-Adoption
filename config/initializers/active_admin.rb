@@ -148,10 +148,8 @@ ActiveAdmin.setup do |config|
   # config.before_action :do_something_awesome
 
   config.before_action do
-    if Rails.env == 'production'
-      authenticate_or_request_with_http_basic("Administration") do |name, password|
-        name == ENV['ADMIN_USER'] && password == ['ADMIN_PWD']
-      end
+    authenticate_or_request_with_http_basic("Administration") do |name, password|
+      name == Rails.application.secrets.active_admin_username && password == Rails.application.secrets.active_admin_password
     end
   end
 
