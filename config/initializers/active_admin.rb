@@ -147,6 +147,14 @@ ActiveAdmin.setup do |config|
   #
   # config.before_action :do_something_awesome
 
+  config.before_action do
+    if Rails.env == 'production'
+      authenticate_or_request_with_http_basic("Administration") do |name, password|
+        name == ENV['ADMIN_USER'] && password == ['ADMIN_PWD']
+      end
+    end
+  end
+
   # == Localize Date/Time Format
   #
   # Set the localize format to display dates and times.
