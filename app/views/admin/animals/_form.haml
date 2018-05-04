@@ -10,19 +10,19 @@
     = f.input :description
     / %li
     /   %label Video
-  = f.inputs do
-    - f.has_many :media, heading: 'Add Media', allow_destroy: true do |medium|
-      - medium.input :medium_type
-      - medium.input :mediable_type, as: :hidden, value: 'Animal'
-      - medium.input :mediable_id, as: :hidden, value: '@animal.id'
-      - medium.input :url, as: :hidden
+  -# = f.inputs do
+  -#   - f.has_many :media, heading: 'Add Media', allow_destroy: true do |medium|
+  -#     - medium.input :medium_type
+  -#     - medium.input :mediable_type, as: :hidden, value: 'Animal'
+  -#     - medium.input :mediable_id, as: :hidden, value: '@animal.id'
+  -#     - medium.input :url, as: :hidden
 
-      - url = medium.object.url
-      - medium_type = medium.object.medium_type
-      %li
-        %label=medium_type
-        .photo-list
-          %img{src: url, class: 'dog-image'}
-          = f.file_field :file, class: 'avatar-select hidden', accept: '.jpg, .jpeg, .png, .gif, .bmp', multiple: true
+  -#     - url = medium.object.url
+  -#     - medium_type = medium.object.medium_type
+  -#     %li
+  -#       %label=medium_type
+  -#       .photo-list
+  -#         %img{src: url, class: 'dog-image'}
+  -#         = f.file_field :file, class: 'avatar-select hidden', accept: '.jpg, .jpeg, .png, .gif, .bmp', multiple: true
 
   = f.actions

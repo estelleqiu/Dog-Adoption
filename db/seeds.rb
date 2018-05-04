@@ -369,7 +369,7 @@ dogs = [
 
   {
     name: '狗妈',
-    gender: 0,
+    gender: 1,
     is_vaccined: true,
     is_sterilized: false,
     size: 'medium',
