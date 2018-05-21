@@ -1,13 +1,14 @@
 = semantic_form_for [:admin, @animal], builder: ActiveAdmin::FormBuilder do |f|
   = f.inputs :name => 'Name', class: 'inputs' do
-    = f.input :name
-    = f.input :animal_type
-    = f.input :birth_date
-    = f.input :gender
-    = f.input :variety
-    = f.input :character
-    = f.input :size
-    = f.input :description
+    = f.input :name, label: '名字'
+    = f.input :animal_type, label: '动物种类'
+    = f.input :birth_date, label: '生日'
+    = f.input :gender, label: '性别'
+    = f.input :variety, label: '品种'
+    = f.input :size, label: '体型', as: :select, collection: ['小型犬', '中型犬', '大型犬']
+    = f.input :description, label: '简述'
+    = f.input :is_vaccined, label: '已打疫苗'
+    = f.input :is_sterilized, label: '已绝育'
     / %li
     /   %label Video
   -# = f.inputs do

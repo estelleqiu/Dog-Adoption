@@ -1,7 +1,7 @@
 ActiveAdmin.register Animal do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  permit_params :name, :animal_type, :birth_date, :gender, :variety, :character, :slug, :description, :size, :file, media_attributes: [:id, :medium_type, :mediable_type, :mediable_id, :_destroy]
+  permit_params :name, :animal_type, :birth_date, :gender, :variety, :character, :is_sterilized, :is_vaccined, :description, :size, :file, media_attributes: [:id, :medium_type, :mediable_type, :mediable_id, :_destroy]
   form partial: 'form'
   # config.clear_action_items!
   index do
@@ -12,8 +12,9 @@ ActiveAdmin.register Animal do
     column :birth_date
     column :gender
     column :variety
-    column :character
     column :description
+    column :is_vaccined
+    column :is_sterilized
     column :actions do |animal|
       link = link_to 'View', admin_animal_path(animal, request.query_parameters).to_s, class: :member_link
       link += link_to 'Edit', edit_admin_animal_path(animal, request.query_parameters).to_s, class: :member_link

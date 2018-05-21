@@ -24,7 +24,6 @@ class Animal < ApplicationRecord
 
   enum animal_type: [:dog, :cat]
   enum gender: [:male, :female, :unknown]
-  enum size: [:small, :medium, :big]
 
   accepts_nested_attributes_for :media, allow_destroy: true
 end

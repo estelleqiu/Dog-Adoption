@@ -1,7 +1,7 @@
 <main>
   <section class='carousel-container'>
     <%- if @animal.media.blank? %>
-      <img src='http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg', class: 'carosel-image'/>
+      <img src='/assets/come_home.jpg', class: 'carosel-image'/>
     <% else %>
       <div class="carousel">
         <%- @animal.media.each do |p| %>
