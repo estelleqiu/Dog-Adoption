@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428010923) do
+ActiveRecord::Schema.define(version: 20180504072954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20180428010923) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.boolean "is_vaccined", default: false
-    t.boolean "is_sterilizationed", default: false
+    t.boolean "is_sterilized", default: false
     t.string "size"
   end
 
@@ -83,12 +83,12 @@ ActiveRecord::Schema.define(version: 20180428010923) do
   end
 
   create_table "media", force: :cascade do |t|
-    t.string "url", default: "http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg"
     t.integer "medium_type"
     t.string "mediable_type"
     t.bigint "mediable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "url"
     t.index ["mediable_type", "mediable_id"], name: "index_media_on_mediable_type_and_mediable_id"
   end
 

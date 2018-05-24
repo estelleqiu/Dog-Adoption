@@ -3,12 +3,12 @@
 # Table name: media
 #
 #  id            :integer          not null, primary key
-#  url           :string           default("http://p4wgbyuaw.bkt.clouddn.com/default_avatar.jpg")
 #  medium_type   :integer
 #  mediable_type :string
 #  mediable_id   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  url           :string
 #
 # Indexes
 #

@@ -147,6 +147,12 @@ ActiveAdmin.setup do |config|
   #
   # config.before_action :do_something_awesome
 
+  config.before_action do
+    authenticate_or_request_with_http_basic("Administration") do |name, password|
+      name == Rails.application.secrets.active_admin_username && password == Rails.application.secrets.active_admin_password
+    end
+  end
+
   # == Localize Date/Time Format
   #
   # Set the localize format to display dates and times.
