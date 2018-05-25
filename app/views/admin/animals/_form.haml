@@ -1,5 +1,6 @@
 = semantic_form_for [:admin, @animal], builder: ActiveAdmin::FormBuilder do |f|
   = f.inputs :name => 'Name', class: 'inputs' do
+    = f.input :id, as: :hidden
     = f.input :name, label: '名字'
     = f.input :animal_type, label: '动物种类'
     = f.input :birth_date, label: '生日'
@@ -9,21 +10,20 @@
     = f.input :description, label: '简述'
     = f.input :is_vaccined, label: '已打疫苗'
     = f.input :is_sterilized, label: '已绝育'
-    / %li
-    /   %label Video
-  -# = f.inputs do
-  -#   - f.has_many :media, heading: 'Add Media', allow_destroy: true do |medium|
-  -#     - medium.input :medium_type
-  -#     - medium.input :mediable_type, as: :hidden, value: 'Animal'
-  -#     - medium.input :mediable_id, as: :hidden, value: '@animal.id'
-  -#     - medium.input :url, as: :hidden
+  - unless params[:action] == 'new'
+    = f.inputs do
+      - f.has_many :media, heading: '添加图片', allow_destroy: true do |medium|
+        - medium.input :medium_type, label: '类型', default: 'photo'
+        - medium.input :mediable_type, as: :hidden, value: 'Animal'
+        - medium.input :mediable_id, as: :hidden, value: '@animal.id'
+        - medium.input :url, as: :hidden
 
-  -#     - url = medium.object.url
-  -#     - medium_type = medium.object.medium_type
-  -#     %li
-  -#       %label=medium_type
-  -#       .photo-list
-  -#         %img{src: url, class: 'dog-image'}
-  -#         = f.file_field :file, class: 'avatar-select hidden', accept: '.jpg, .jpeg, .png, .gif, .bmp', multiple: true
+        - url = medium.object.url
+        - medium_type = medium.object.medium_type
+        %li
+          %label=medium_type
+          .photo-list
+            %img{src: url, class: 'dog-image'}
+            = f.file_field :file, class: 'avatar-select hidden', accept: '.jpg, .jpeg, .png, .gif, .bmp', multiple: true
 
   = f.actions
